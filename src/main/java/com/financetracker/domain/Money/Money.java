@@ -7,7 +7,7 @@ import java.math.RoundingMode;
 import java.util.Currency;
 import java.util.Set;
 
-public class Money {
+public final class Money {
      // final and private for security and immutability
      private final BigDecimal amount;   // no errors with decimal points
      private final Currency currency;
@@ -32,7 +32,7 @@ public class Money {
     private static final RoundingMode rounder = RoundingMode.HALF_EVEN;
 
     public static BigDecimal normalize(BigDecimal amount){
-        return amount.setScale(2,rounder);
+        return amount.setScale(roundingval,rounder);
     }
 
 
@@ -56,11 +56,11 @@ public class Money {
         return new Money(normalize(rAmount),currency);
     }
 
-    public BigDecimal getAmount(BigDecimal inputAmount){
+    public BigDecimal getAmount(){
         return amount;
     }
 
-    public Currency getCurrency(Currency inputCurrency){
+    public Currency getCurrency(){
         return currency;
     }
 
@@ -79,9 +79,19 @@ public class Money {
 
     }
 
-    public @Override boolean equals(Object e){
-        if(this.e == )
+    //changing definition of equals due to money having many to one values where they are the same
+
+    public @Override boolean equals(Object e)
+    {
+        if(this == e ){return true;}
+        if (e == null || e.getClass() != getClass()) {
+        return false;}
+        Money other = (Money) e;
+        return currency.equals(other.currency) && amount.compareTo(other.amount) == 0;
     }
+
+    // also changing hashcode for hashmaps related to money
+    public @Override int hashCode(){return java.util.Objects.hash(currency,amount.stripTrailingZeros());}
 
 
 
