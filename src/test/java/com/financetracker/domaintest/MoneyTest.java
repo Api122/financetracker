@@ -1,6 +1,6 @@
 package com.financetracker.domaintest;
 import com.financetracker.domain.Exception.IllegalAdditionException;
-import com.financetracker.domain.Money.Money;
+import com.financetracker.domain.Money;
 import com.financetracker.domain.Exception.IllegalCurrencyException;
 
 
@@ -9,8 +9,8 @@ import  org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.util.Currency;
 
-import static com.financetracker.domain.Money.Money.add;
-import static com.financetracker.domain.Money.Money.negate;
+import static com.financetracker.domain.Money.add;
+import static com.financetracker.domain.Money.negate;
 import static org.junit.jupiter.api.Assertions.*;
 
 // tests to do check if same money are equals check if addition of money works , check if the error of adding different currienies works ,

@@ -1,4 +1,4 @@
-package com.financetracker.domain.Money;
+package com.financetracker.domain;
 
 import com.financetracker.domain.Exception.IllegalAdditionException;
 import com.financetracker.domain.Exception.IllegalCurrencyException;
