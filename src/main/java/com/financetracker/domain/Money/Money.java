@@ -1,5 +1,6 @@
 package com.financetracker.domain.Money;
 
+import com.financetracker.domain.Exception.IllegalAdditionException;
 import com.financetracker.domain.Exception.IllegalCurrencyException;
 
 import java.math.BigDecimal;
@@ -22,7 +23,7 @@ public final class Money {
     private static final Set<Currency> VALID_CURRENCY =
             Set.of(
                     Currency.getInstance("USD"),
-                    Currency.getInstance("GDP"),
+                    Currency.getInstance("GBP"),
                     Currency.getInstance("EUR")
 
 
@@ -69,14 +70,20 @@ public final class Money {
         return a1.add(a2);
     }
 
-    public static Money moneyAddition(Money money1,Money money2){
-        if(money1.currency != money2.currency){throw new IllegalCurrencyException("Currencies dont match, input 1 is" + money1.currency + ", input 2 is" + money2.currency);}
+    public static Money add(Money money1, Money money2){
+        if(!money1.currency.equals(money2.currency)){throw new IllegalAdditionException(" "+ money1.currency + ", input 2 is" + money2.currency);}
 
-        return new Money(amountAddition(money1.amount,money2.amount),money1.currency);
-
-
+        return  Money.of(amountAddition(money1.amount,money2.amount),money1.currency);
 
 
+
+
+    }
+
+    public static Money negate(Money money){
+
+      BigDecimal negatedamount = money.amount.negate();
+        return Money.of(negatedamount,money.currency);
     }
 
     //changing definition of equals due to money having many to one values where they are the same
@@ -93,10 +100,12 @@ public final class Money {
     // also changing hashcode for hashmaps related to money
     public @Override int hashCode(){return java.util.Objects.hash(currency,amount.stripTrailingZeros());}
 
+    @Override
+    public String toString() {
+        return "Currency is :" + currency +"," + "Amount is :" + amount;
 
 
-
-
+    }
 }
 
 
