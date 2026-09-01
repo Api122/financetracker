@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62638c5a-869e-41d2-ab42-68747459f81b" name="Changes" comment="finished money class and finished tests for money, may modify tests later">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/TransactionMethods.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/TranscationType.java" afterDir="false" />
+    <list default="true" id="62638c5a-869e-41d2-ab42-68747459f81b" name="Changes" comment="transaction class finished may modify">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/financetracker/domaintest/TransactionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Money/Money.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Money.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Money.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Money.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Transaction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/financetracker/domaintest/MoneyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/financetracker/domaintest/MoneyTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,9 +21,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Exception" />
-        <option value="Class" />
         <option value="Interface" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -53,37 +54,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.MoneyTest.additionOFMoneyWorksAsIntended.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MoneyTest.additionOfMoneyWithDifferentCurrencyThrowsError.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MoneyTest.amountsWithDifferentDecimalsAreEqual.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MoneyTest.constructingInvalidCurrencyThrowsException.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MoneyTest.constructingValidAmountandCurrency.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MoneyTest.constructingWithNullAmountThrowsNullPointerException.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MoneyTest.constructingWithNullCurrencyThrowsNullPointerException.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MoneyTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MoneyTest.negationTwiceReturnsOriginalValue.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MoneyTest.negationWorks.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MoneyTest.normaliseAmountWorks.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MoneyTest.sameAmountWithDifferentCurrenciesAreNotEqual.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MoneyTest.sameAmountsWithDifferentDecimalsAreEqual.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MoneyTest.sameCurrencyWithDifferentAmountAreNotEqual.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.financetracker [test].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/apisheksrikanthan/Desktop/project/financetracker/src/main/java/com/financetracker/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.MoneyTest.additionOFMoneyWorksAsIntended.executor": "Run",
+    "JUnit.MoneyTest.additionOfMoneyWithDifferentCurrencyThrowsError.executor": "Run",
+    "JUnit.MoneyTest.amountsWithDifferentDecimalsAreEqual.executor": "Run",
+    "JUnit.MoneyTest.constructingInvalidCurrencyThrowsException.executor": "Run",
+    "JUnit.MoneyTest.constructingValidAmountandCurrency.executor": "Run",
+    "JUnit.MoneyTest.constructingWithNoMoneyThrowsException.executor": "Run",
+    "JUnit.MoneyTest.constructingWithNullAmountThrowsNullPointerException.executor": "Run",
+    "JUnit.MoneyTest.constructingWithNullCurrencyThrowsNullPointerException.executor": "Run",
+    "JUnit.MoneyTest.executor": "Run",
+    "JUnit.MoneyTest.negationTwiceReturnsOriginalValue.executor": "Run",
+    "JUnit.MoneyTest.negationWorks.executor": "Run",
+    "JUnit.MoneyTest.normaliseAmountWorks.executor": "Run",
+    "JUnit.MoneyTest.sameAmountWithDifferentCurrenciesAreNotEqual.executor": "Run",
+    "JUnit.MoneyTest.sameAmountsWithDifferentDecimalsAreEqual.executor": "Run",
+    "JUnit.MoneyTest.sameCurrencyWithDifferentAmountAreNotEqual.executor": "Run",
+    "JUnit.TransactionTest.emmptyAmountThrowsError.executor": "Run",
+    "JUnit.TransactionTest.executor": "Run",
+    "JUnit.TransactionTest.negativeAmountInTransactionThrowsError.executor": "Run",
+    "JUnit.TransactionTest.toStringContainsKeyFields.executor": "Run",
+    "JUnit.TransactionTest.transcationInitaliseWorks.executor": "Run",
+    "JUnit.TransactionTest.twoIdenticalTransactionsAreNotTheSame.executor": "Run",
+    "JUnit.TransactionTest.zeroAmountAccepted.executor": "Run",
+    "Maven.financetracker [test].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "onboarding.tips.debug.path": "/Users/apisheksrikanthan/Desktop/project/financetracker/src/main/java/com/financetracker/Main.java",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/com/financetracker" />
@@ -93,8 +102,8 @@
       <recent name="com.financetracker.domain.Money" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MoneyTest.additionOfMoneyWithDifferentCurrencyThrowsError">
-    <configuration name="MoneyTest.additionOfMoneyWithDifferentCurrencyThrowsError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TransactionTest.zeroAmountAccepted">
+    <configuration name="TransactionTest.emptyAmountThrowsError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="financetracker" />
       <extension name="coverage">
         <pattern>
@@ -103,14 +112,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.financetracker.domaintest" />
-      <option name="MAIN_CLASS_NAME" value="com.financetracker.domaintest.MoneyTest" />
-      <option name="METHOD_NAME" value="additionOfMoneyWithDifferentCurrencyThrowsError" />
+      <option name="MAIN_CLASS_NAME" value="com.financetracker.domaintest.TransactionTest" />
+      <option name="METHOD_NAME" value="emptyAmountThrowsError" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoneyTest.negationTwiceReturnsOriginalValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TransactionTest.negativeAmountInTransactionThrowsError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="financetracker" />
       <extension name="coverage">
         <pattern>
@@ -119,14 +128,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.financetracker.domaintest" />
-      <option name="MAIN_CLASS_NAME" value="com.financetracker.domaintest.MoneyTest" />
-      <option name="METHOD_NAME" value="negationTwiceReturnsOriginalValue" />
+      <option name="MAIN_CLASS_NAME" value="com.financetracker.domaintest.TransactionTest" />
+      <option name="METHOD_NAME" value="negativeAmountInTransactionThrowsError" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoneyTest.negationWorks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TransactionTest.toStringContainsKeyFields" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="financetracker" />
       <extension name="coverage">
         <pattern>
@@ -135,14 +144,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.financetracker.domaintest" />
-      <option name="MAIN_CLASS_NAME" value="com.financetracker.domaintest.MoneyTest" />
-      <option name="METHOD_NAME" value="negationWorks" />
+      <option name="MAIN_CLASS_NAME" value="com.financetracker.domaintest.TransactionTest" />
+      <option name="METHOD_NAME" value="toStringContainsKeyFields" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoneyTest.normaliseAmountWorks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TransactionTest.twoIdenticalTransactionsAreNotTheSame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="financetracker" />
       <extension name="coverage">
         <pattern>
@@ -151,14 +160,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.financetracker.domaintest" />
-      <option name="MAIN_CLASS_NAME" value="com.financetracker.domaintest.MoneyTest" />
-      <option name="METHOD_NAME" value="normaliseAmountWorks" />
+      <option name="MAIN_CLASS_NAME" value="com.financetracker.domaintest.TransactionTest" />
+      <option name="METHOD_NAME" value="twoIdenticalTransactionsAreNotTheSame" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoneyTest.sameCurrencyWithDifferentAmountAreNotEqual" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TransactionTest.zeroAmountAccepted" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="financetracker" />
       <extension name="coverage">
         <pattern>
@@ -167,8 +176,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.financetracker.domaintest" />
-      <option name="MAIN_CLASS_NAME" value="com.financetracker.domaintest.MoneyTest" />
-      <option name="METHOD_NAME" value="sameCurrencyWithDifferentAmountAreNotEqual" />
+      <option name="MAIN_CLASS_NAME" value="com.financetracker.domaintest.TransactionTest" />
+      <option name="METHOD_NAME" value="zeroAmountAccepted" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -185,11 +194,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MoneyTest.additionOfMoneyWithDifferentCurrencyThrowsError" />
-        <item itemvalue="JUnit.MoneyTest.negationTwiceReturnsOriginalValue" />
-        <item itemvalue="JUnit.MoneyTest.negationWorks" />
-        <item itemvalue="JUnit.MoneyTest.normaliseAmountWorks" />
-        <item itemvalue="JUnit.MoneyTest.sameCurrencyWithDifferentAmountAreNotEqual" />
+        <item itemvalue="JUnit.TransactionTest.zeroAmountAccepted" />
+        <item itemvalue="JUnit.TransactionTest.toStringContainsKeyFields" />
+        <item itemvalue="JUnit.TransactionTest.negativeAmountInTransactionThrowsError" />
+        <item itemvalue="JUnit.TransactionTest.twoIdenticalTransactionsAreNotTheSame" />
+        <item itemvalue="JUnit.TransactionTest.emptyAmountThrowsError" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +224,8 @@
       <workItem from="1787730665306" duration="425000" />
       <workItem from="1787731110752" duration="1952000" />
       <workItem from="1787912820284" duration="6477000" />
-      <workItem from="1788012360544" duration="2729000" />
+      <workItem from="1788012360544" duration="3019000" />
+      <workItem from="1788244615783" duration="6118000" />
     </task>
     <task id="LOCAL-00001" summary="added files back">
       <option name="closed" value="true" />
@@ -241,7 +251,23 @@
       <option name="project" value="LOCAL" />
       <updated>1788012410993</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="transaction class finished may modify">
+      <option name="closed" value="true" />
+      <created>1788015326425</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1788015326425</updated>
+    </task>
+    <task id="LOCAL-00005" summary="transaction class finished may modify">
+      <option name="closed" value="true" />
+      <created>1788015335875</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1788015335875</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,7 +277,8 @@
     <MESSAGE value="added files back" />
     <MESSAGE value="fixed errors" />
     <MESSAGE value="finished money class and finished tests for money, may modify tests later" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished money class and finished tests for money, may modify tests later" />
+    <MESSAGE value="transaction class finished may modify" />
+    <option name="LAST_COMMIT_MESSAGE" value="transaction class finished may modify" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

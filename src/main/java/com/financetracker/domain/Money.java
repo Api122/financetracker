@@ -45,6 +45,7 @@ public final class Money {
 
         if(rAmount == null){throw new NullPointerException("Null value of amount ");}
         if(currency == null){throw new NullPointerException("NULL VALUE of currency");}
+
         // checks in relation to money
 
         if(!VALID_CURRENCY.contains(currency)) {throw new IllegalCurrencyException("Invalid value given is " + currency);}
@@ -57,7 +58,7 @@ public final class Money {
         return new Money(normalize(rAmount),currency);
     }
 
-    public BigDecimal getAmount(){
+    public BigDecimal getAmountmoney(){
         return amount;
     }
 

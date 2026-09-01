@@ -27,6 +27,10 @@ public final class Transaction {
         if(oldamount == null){throw new NullPointerException("oldamount is null");}
         if(oldcategory == null){throw new NullPointerException("oldcategory is null");}
         if(oldtype == null){throw new NullPointerException("oldtype is null");}
+        if(oldcategory.isBlank()){throw new IllegalArgumentException("You have to add a category" + oldcategory);}
+        if(oldamount.getAmountmoney().signum() < 0){throw new IllegalArgumentException("Amount cant be negative use transactionType enum to indicate expense or income");
+        }
+
 
         return new Transaction(oldamount,olddate,oldcategory,oldtype);}
 

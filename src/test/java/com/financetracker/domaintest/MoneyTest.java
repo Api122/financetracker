@@ -21,7 +21,7 @@ public class MoneyTest {
     @Test  void constructingValidAmountandCurrency() {
         Money money = Money.of(new BigDecimal("20"), Currency.getInstance("USD"));
 
-        assertEquals(new BigDecimal("20.00"), money.getAmount());
+        assertEquals(new BigDecimal("20.00"), money.getAmountmoney());
         assertEquals(Currency.getInstance("USD"), money.getCurrency());
     }
 
@@ -78,8 +78,8 @@ public class MoneyTest {
        Money money1 = Money.of(new BigDecimal("15.005"),Currency.getInstance("USD"));
        Money money2 = Money.of(new BigDecimal("15.015"),Currency.getInstance("USD"));
 
-       assertEquals(new BigDecimal("15.00"),money1.getAmount());
-       assertEquals(new BigDecimal("15.02"),money2.getAmount());
+       assertEquals(new BigDecimal("15.00"),money1.getAmountmoney());
+       assertEquals(new BigDecimal("15.02"),money2.getAmountmoney());
 
    }
    @Test void negationWorks(){
