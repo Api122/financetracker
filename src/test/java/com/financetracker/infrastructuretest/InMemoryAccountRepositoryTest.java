@@ -77,8 +77,7 @@ public class InMemoryAccountRepositoryTest {
         // getaccountIDedgecase
 
     @Test void gettingAccountIDonIDNeverAdded(){
-        Account account = Account.of("1234",Currency.getInstance("USD"));
-
+        
         AccountRepository repo = new InMemoryAccountRepository();
         Optional<Account> account1 = repo.getAccountfromAccountID("1234");
         assertTrue(account1.isEmpty());
