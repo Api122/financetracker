@@ -35,6 +35,9 @@ public final class Transaction {
         return new Transaction(oldamount,olddate,oldcategory,oldtype);}
 
 
+
+
+
     public Money getAmount() {
         return amount;
     }

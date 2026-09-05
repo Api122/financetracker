@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62638c5a-869e-41d2-ab42-68747459f81b" name="Changes" comment="transaction class finished may modify">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/financetracker/domaintest/TransactionTest.java" afterDir="false" />
+    <list default="true" id="62638c5a-869e-41d2-ab42-68747459f81b" name="Changes" comment="added repo for account and done tests for account and done half of aco">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Money.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Money.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/AccountRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/financetracker/domaintest/MoneyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/financetracker/domaintest/MoneyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/financetracker/infrastructure/InMemoryAccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/infrastructure/InMemoryAccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/financetracker/domaintest/AccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/financetracker/domaintest/AccountTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/financetracker/infrastructuretest/InMemoryAccountRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/financetracker/infrastructuretest/InMemoryAccountRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,13 +22,27 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Exception" />
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
+        <option value="package-info" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -56,6 +71,28 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.AccountTest.executor": "Run",
+    "JUnit.AccountTest.getBalanceWorkingWithIncomeAndExpense.executor": "Run",
+    "JUnit.AccountTest.getBalanceWorkingWithOnlyExpense.executor": "Run",
+    "JUnit.AccountTest.getBalanceWorkingWithOnlyIncome.executor": "Run",
+    "JUnit.AccountTest.getTransactionsReturnsUnmodifiableList.executor": "Run",
+    "JUnit.AccountTest.throwsIllegalArguementWhenIDisBlank.executor": "Run",
+    "JUnit.AccountTest.throwsIllegalArguementWhenInputDoesNotMatchAccountCurrencyaddition.executor": "Run",
+    "JUnit.AccountTest.throwsIllegalArguementWhenInputDoesNotMatchAccountCurrencyremoval.executor": "Run",
+    "JUnit.AccountTest.throwsIllegalArguemntWhenIDisBlank.executor": "Run",
+    "JUnit.AccountTest.throwsNullExceptionWhenInputisNulltoAddition.executor": "Run",
+    "JUnit.AccountTest.transactionHistoryEqualToTransactionWhenremoving.executor": "Run",
+    "JUnit.InMemoryAccountRepositoryTest.accountFromGetAccountIDWorks.executor": "Run",
+    "JUnit.InMemoryAccountRepositoryTest.additionOnIDAlreadyPresentThrowserror.executor": "Run",
+    "JUnit.InMemoryAccountRepositoryTest.deleteAccountWorks.executor": "Run",
+    "JUnit.InMemoryAccountRepositoryTest.deletionOfNonExistentId.executor": "Run",
+    "JUnit.InMemoryAccountRepositoryTest.deletionOfNonExistentIdThrowsError.executor": "Run",
+    "JUnit.InMemoryAccountRepositoryTest.executor": "Run",
+    "JUnit.InMemoryAccountRepositoryTest.findAllAccountsReturnsANewList.executor": "Run",
+    "JUnit.InMemoryAccountRepositoryTest.findAllAccountsonEmtpyRepoReturnsEmptyList.executor": "Run",
+    "JUnit.InMemoryAccountRepositoryTest.findAllAccountsworks.executor": "Run",
+    "JUnit.InMemoryAccountRepositoryTest.gettingAccountIDonIDNeverAdded.executor": "Run",
+    "JUnit.InMemoryAccountRepositoryTest.updateAccountWorks.executor": "Run",
     "JUnit.MoneyTest.additionOFMoneyWorksAsIntended.executor": "Run",
     "JUnit.MoneyTest.additionOfMoneyWithDifferentCurrencyThrowsError.executor": "Run",
     "JUnit.MoneyTest.amountsWithDifferentDecimalsAreEqual.executor": "Run",
@@ -81,11 +118,13 @@
     "Maven.financetracker [test].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/Users/apisheksrikanthan/Desktop/project/financetracker/src/main/java/com/financetracker/Main.java",
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
@@ -102,82 +141,82 @@
       <recent name="com.financetracker.domain.Money" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TransactionTest.zeroAmountAccepted">
-    <configuration name="TransactionTest.emptyAmountThrowsError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.InMemoryAccountRepositoryTest.findAllAccountsReturnsANewList">
+    <configuration name="InMemoryAccountRepositoryTest.additionOnIDAlreadyPresentThrowserror" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="financetracker" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.financetracker.domaintest.*" />
+          <option name="PATTERN" value="com.financetracker.infrastructuretest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.financetracker.domaintest" />
-      <option name="MAIN_CLASS_NAME" value="com.financetracker.domaintest.TransactionTest" />
-      <option name="METHOD_NAME" value="emptyAmountThrowsError" />
+      <option name="PACKAGE_NAME" value="com.financetracker.infrastructuretest" />
+      <option name="MAIN_CLASS_NAME" value="com.financetracker.infrastructuretest.InMemoryAccountRepositoryTest" />
+      <option name="METHOD_NAME" value="additionOnIDAlreadyPresentThrowserror" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TransactionTest.negativeAmountInTransactionThrowsError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="InMemoryAccountRepositoryTest.deletionOfNonExistentId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="financetracker" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.financetracker.domaintest.*" />
+          <option name="PATTERN" value="com.financetracker.infrastructuretest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.financetracker.domaintest" />
-      <option name="MAIN_CLASS_NAME" value="com.financetracker.domaintest.TransactionTest" />
-      <option name="METHOD_NAME" value="negativeAmountInTransactionThrowsError" />
+      <option name="PACKAGE_NAME" value="com.financetracker.infrastructuretest" />
+      <option name="MAIN_CLASS_NAME" value="com.financetracker.infrastructuretest.InMemoryAccountRepositoryTest" />
+      <option name="METHOD_NAME" value="deletionOfNonExistentId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TransactionTest.toStringContainsKeyFields" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="InMemoryAccountRepositoryTest.findAllAccountsReturnsANewList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="financetracker" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.financetracker.domaintest.*" />
+          <option name="PATTERN" value="com.financetracker.infrastructuretest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.financetracker.domaintest" />
-      <option name="MAIN_CLASS_NAME" value="com.financetracker.domaintest.TransactionTest" />
-      <option name="METHOD_NAME" value="toStringContainsKeyFields" />
+      <option name="PACKAGE_NAME" value="com.financetracker.infrastructuretest" />
+      <option name="MAIN_CLASS_NAME" value="com.financetracker.infrastructuretest.InMemoryAccountRepositoryTest" />
+      <option name="METHOD_NAME" value="findAllAccountsReturnsANewList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TransactionTest.twoIdenticalTransactionsAreNotTheSame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="InMemoryAccountRepositoryTest.findAllAccountsonEmtpyRepoReturnsEmptyList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="financetracker" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.financetracker.domaintest.*" />
+          <option name="PATTERN" value="com.financetracker.infrastructuretest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.financetracker.domaintest" />
-      <option name="MAIN_CLASS_NAME" value="com.financetracker.domaintest.TransactionTest" />
-      <option name="METHOD_NAME" value="twoIdenticalTransactionsAreNotTheSame" />
+      <option name="PACKAGE_NAME" value="com.financetracker.infrastructuretest" />
+      <option name="MAIN_CLASS_NAME" value="com.financetracker.infrastructuretest.InMemoryAccountRepositoryTest" />
+      <option name="METHOD_NAME" value="findAllAccountsonEmtpyRepoReturnsEmptyList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TransactionTest.zeroAmountAccepted" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="InMemoryAccountRepositoryTest.updateAccountWorks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="financetracker" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.financetracker.domaintest.*" />
+          <option name="PATTERN" value="com.financetracker.infrastructuretest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.financetracker.domaintest" />
-      <option name="MAIN_CLASS_NAME" value="com.financetracker.domaintest.TransactionTest" />
-      <option name="METHOD_NAME" value="zeroAmountAccepted" />
+      <option name="PACKAGE_NAME" value="com.financetracker.infrastructuretest" />
+      <option name="MAIN_CLASS_NAME" value="com.financetracker.infrastructuretest.InMemoryAccountRepositoryTest" />
+      <option name="METHOD_NAME" value="updateAccountWorks" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -194,11 +233,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TransactionTest.zeroAmountAccepted" />
-        <item itemvalue="JUnit.TransactionTest.toStringContainsKeyFields" />
-        <item itemvalue="JUnit.TransactionTest.negativeAmountInTransactionThrowsError" />
-        <item itemvalue="JUnit.TransactionTest.twoIdenticalTransactionsAreNotTheSame" />
-        <item itemvalue="JUnit.TransactionTest.emptyAmountThrowsError" />
+        <item itemvalue="JUnit.InMemoryAccountRepositoryTest.findAllAccountsReturnsANewList" />
+        <item itemvalue="JUnit.InMemoryAccountRepositoryTest.updateAccountWorks" />
+        <item itemvalue="JUnit.InMemoryAccountRepositoryTest.deletionOfNonExistentId" />
+        <item itemvalue="JUnit.InMemoryAccountRepositoryTest.findAllAccountsonEmtpyRepoReturnsEmptyList" />
+        <item itemvalue="JUnit.InMemoryAccountRepositoryTest.additionOnIDAlreadyPresentThrowserror" />
       </list>
     </recent_temporary>
   </component>
@@ -225,7 +264,12 @@
       <workItem from="1787731110752" duration="1952000" />
       <workItem from="1787912820284" duration="6477000" />
       <workItem from="1788012360544" duration="3019000" />
-      <workItem from="1788244615783" duration="6118000" />
+      <workItem from="1788244615783" duration="6166000" />
+      <workItem from="1788273081748" duration="6552000" />
+      <workItem from="1788375143111" duration="5802000" />
+      <workItem from="1788513767478" duration="2361000" />
+      <workItem from="1788620735799" duration="245000" />
+      <workItem from="1788621157789" duration="3204000" />
     </task>
     <task id="LOCAL-00001" summary="added files back">
       <option name="closed" value="true" />
@@ -267,7 +311,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788015335875</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="starting on Account.java">
+      <option name="closed" value="true" />
+      <created>1788250782457</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1788250782457</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +330,8 @@
     <MESSAGE value="fixed errors" />
     <MESSAGE value="finished money class and finished tests for money, may modify tests later" />
     <MESSAGE value="transaction class finished may modify" />
-    <option name="LAST_COMMIT_MESSAGE" value="transaction class finished may modify" />
+    <MESSAGE value="starting on Account.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="starting on Account.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -295,6 +348,38 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/financetracker/domaintest/AccountTest.java</url>
+          <line>107</line>
+          <properties class="com.financetracker.domaintest.AccountTest" method="getBalanceWorkingWithOnlyExpense">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/financetracker/domaintest/AccountTest.java</url>
+          <line>57</line>
+          <properties class="com.financetracker.domaintest.AccountTest" method="throwsIllegalArguemntWhenIDisBlank">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/financetracker/infrastructuretest/InMemoryAccountRepositoryTest.java</url>
+          <line>102</line>
+          <properties class="com.financetracker.infrastructuretest.InMemoryAccountRepositoryTest" method="findAllAccountsReturnsANewList">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/financetracker/domaintest/AccountTest.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
