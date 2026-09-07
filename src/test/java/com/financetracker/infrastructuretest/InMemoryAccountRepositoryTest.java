@@ -77,7 +77,7 @@ public class InMemoryAccountRepositoryTest {
         // getaccountIDedgecase
 
     @Test void gettingAccountIDonIDNeverAdded(){
-        
+
         AccountRepository repo = new InMemoryAccountRepository();
         Optional<Account> account1 = repo.getAccountfromAccountID("1234");
         assertTrue(account1.isEmpty());
