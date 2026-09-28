@@ -55,6 +55,16 @@ public final class Transaction {
     }
 
     @Override
+    public boolean equals(Object e){
+        if(this == e){return true;}
+        if(e == null || e.getClass() != getClass()){return false;}
+        Transaction other = (Transaction) e;
+        return amount.equals(other.amount) && date.equals(other.date) && category.equals(other.category) && type.equals(other.type);
+    }
+
+    public @Override int hashCode(){return java.util.Objects.hash(amount,date,category,type);}
+
+    @Override
     public String toString() {
         return amount + " | " + type + " | " + category + " | " + date;
     }

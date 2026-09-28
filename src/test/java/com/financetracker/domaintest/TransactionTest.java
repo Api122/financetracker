@@ -79,7 +79,7 @@ public class TransactionTest {
         Transaction t2 = Transaction.of(Money.of(new BigDecimal("10"),Currency.getInstance("USD")),Instant.parse("2025-10-05T00:00:00Z"),"Misc",
                 TransactionType.EXPENSE);
 
-        assertNotEquals(t1,t2);
+        assertNotSame(t1,t2);
 
     }
 

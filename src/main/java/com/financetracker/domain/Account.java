@@ -69,9 +69,19 @@ public class Account {
         return balance;
     }
 
+    @Override
+    public boolean equals(Object e){
+        if(this == e){return true;}
+        if(e == null || e.getClass() != getClass()){return false;}
 
+        Account other = (Account) e;
+        return accountID.equals(other.accountID) && currency.equals(other.currency) && transactions.equals(other.transactions);
+    }
 
-
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(accountID,currency,transactions);
+    }
 
     @Override
     public String toString() {

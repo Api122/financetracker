@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62638c5a-869e-41d2-ab42-68747459f81b" name="Changes" comment="added repo for account and done tests for account and done half of aco">
+    <list default="true" id="62638c5a-869e-41d2-ab42-68747459f81b" name="Changes" comment="done DAO and Rowmapper in progress with H2">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/financetracker/infrastructuretest/H2AccountRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/AccountRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/domain/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/financetracker/infrastructure/InMemoryAccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/infrastructure/InMemoryAccountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/financetracker/domaintest/AccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/financetracker/domaintest/AccountTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/financetracker/infrastructuretest/InMemoryAccountRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/financetracker/infrastructuretest/InMemoryAccountRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/financetracker/infrastructure/AccountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/infrastructure/AccountDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/financetracker/infrastructure/H2AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/financetracker/infrastructure/H2AccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/financetracker/domaintest/TransactionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/financetracker/domaintest/TransactionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +28,8 @@
       <list>
         <option value="Exception" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="package-info" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -82,6 +87,13 @@
     "JUnit.AccountTest.throwsIllegalArguemntWhenIDisBlank.executor": "Run",
     "JUnit.AccountTest.throwsNullExceptionWhenInputisNulltoAddition.executor": "Run",
     "JUnit.AccountTest.transactionHistoryEqualToTransactionWhenremoving.executor": "Run",
+    "JUnit.H2AccountRepositoryTest.accountAddedToAccountHashmap.executor": "Run",
+    "JUnit.H2AccountRepositoryTest.accountFromGetAccountIDWorks.executor": "Run",
+    "JUnit.H2AccountRepositoryTest.deletionOfNonExistentId.executor": "Run",
+    "JUnit.H2AccountRepositoryTest.executor": "Run",
+    "JUnit.H2AccountRepositoryTest.transactionsSurviveRoundTrip.executor": "Run",
+    "JUnit.H2AccountRepositoryTest.updateAccountWorks.executor": "Run",
+    "JUnit.H2AccountRepositoryTest.updateReplacesTransactions.executor": "Run",
     "JUnit.InMemoryAccountRepositoryTest.accountFromGetAccountIDWorks.executor": "Run",
     "JUnit.InMemoryAccountRepositoryTest.additionOnIDAlreadyPresentThrowserror.executor": "Run",
     "JUnit.InMemoryAccountRepositoryTest.deleteAccountWorks.executor": "Run",
@@ -126,10 +138,15 @@
     "kotlin-language-version-configured": "true",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/Users/apisheksrikanthan/Desktop/project/financetracker/src/main/java/com/financetracker/Main.java",
-    "project.structure.last.edited": "SDKs",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "h2"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -141,8 +158,8 @@
       <recent name="com.financetracker.domain.Money" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.InMemoryAccountRepositoryTest.findAllAccountsReturnsANewList">
-    <configuration name="InMemoryAccountRepositoryTest.additionOnIDAlreadyPresentThrowserror" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.H2AccountRepositoryTest">
+    <configuration name="H2AccountRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="financetracker" />
       <extension name="coverage">
         <pattern>
@@ -151,14 +168,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.financetracker.infrastructuretest" />
-      <option name="MAIN_CLASS_NAME" value="com.financetracker.infrastructuretest.InMemoryAccountRepositoryTest" />
-      <option name="METHOD_NAME" value="additionOnIDAlreadyPresentThrowserror" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="com.financetracker.infrastructuretest.H2AccountRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InMemoryAccountRepositoryTest.deletionOfNonExistentId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="H2AccountRepositoryTest.deletionOfNonExistentId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="financetracker" />
       <extension name="coverage">
         <pattern>
@@ -167,14 +183,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.financetracker.infrastructuretest" />
-      <option name="MAIN_CLASS_NAME" value="com.financetracker.infrastructuretest.InMemoryAccountRepositoryTest" />
+      <option name="MAIN_CLASS_NAME" value="com.financetracker.infrastructuretest.H2AccountRepositoryTest" />
       <option name="METHOD_NAME" value="deletionOfNonExistentId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InMemoryAccountRepositoryTest.findAllAccountsReturnsANewList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="H2AccountRepositoryTest.transactionsSurviveRoundTrip" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="financetracker" />
       <extension name="coverage">
         <pattern>
@@ -183,14 +199,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.financetracker.infrastructuretest" />
-      <option name="MAIN_CLASS_NAME" value="com.financetracker.infrastructuretest.InMemoryAccountRepositoryTest" />
-      <option name="METHOD_NAME" value="findAllAccountsReturnsANewList" />
+      <option name="MAIN_CLASS_NAME" value="com.financetracker.infrastructuretest.H2AccountRepositoryTest" />
+      <option name="METHOD_NAME" value="transactionsSurviveRoundTrip" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InMemoryAccountRepositoryTest.findAllAccountsonEmtpyRepoReturnsEmptyList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="H2AccountRepositoryTest.updateAccountWorks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="financetracker" />
       <extension name="coverage">
         <pattern>
@@ -199,24 +215,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.financetracker.infrastructuretest" />
-      <option name="MAIN_CLASS_NAME" value="com.financetracker.infrastructuretest.InMemoryAccountRepositoryTest" />
-      <option name="METHOD_NAME" value="findAllAccountsonEmtpyRepoReturnsEmptyList" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InMemoryAccountRepositoryTest.updateAccountWorks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="financetracker" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.financetracker.infrastructuretest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.financetracker.infrastructuretest" />
-      <option name="MAIN_CLASS_NAME" value="com.financetracker.infrastructuretest.InMemoryAccountRepositoryTest" />
+      <option name="MAIN_CLASS_NAME" value="com.financetracker.infrastructuretest.H2AccountRepositoryTest" />
       <option name="METHOD_NAME" value="updateAccountWorks" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="H2AccountRepositoryTest.updateReplacesTransactions" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="financetracker" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.financetracker.infrastructuretest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.financetracker.infrastructuretest" />
+      <option name="MAIN_CLASS_NAME" value="com.financetracker.infrastructuretest.H2AccountRepositoryTest" />
+      <option name="METHOD_NAME" value="updateReplacesTransactions" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -233,11 +249,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.InMemoryAccountRepositoryTest.findAllAccountsReturnsANewList" />
-        <item itemvalue="JUnit.InMemoryAccountRepositoryTest.updateAccountWorks" />
-        <item itemvalue="JUnit.InMemoryAccountRepositoryTest.deletionOfNonExistentId" />
-        <item itemvalue="JUnit.InMemoryAccountRepositoryTest.findAllAccountsonEmtpyRepoReturnsEmptyList" />
-        <item itemvalue="JUnit.InMemoryAccountRepositoryTest.additionOnIDAlreadyPresentThrowserror" />
+        <item itemvalue="JUnit.H2AccountRepositoryTest" />
+        <item itemvalue="JUnit.H2AccountRepositoryTest.transactionsSurviveRoundTrip" />
+        <item itemvalue="JUnit.H2AccountRepositoryTest.updateReplacesTransactions" />
+        <item itemvalue="JUnit.H2AccountRepositoryTest.updateAccountWorks" />
+        <item itemvalue="JUnit.H2AccountRepositoryTest.deletionOfNonExistentId" />
       </list>
     </recent_temporary>
   </component>
@@ -269,7 +285,16 @@
       <workItem from="1788375143111" duration="5802000" />
       <workItem from="1788513767478" duration="2361000" />
       <workItem from="1788620735799" duration="245000" />
-      <workItem from="1788621157789" duration="3204000" />
+      <workItem from="1788621157789" duration="3995000" />
+      <workItem from="1788780996641" duration="2805000" />
+      <workItem from="1788790556760" duration="10000" />
+      <workItem from="1788790569323" duration="6306000" />
+      <workItem from="1788877451409" duration="1681000" />
+      <workItem from="1788977718069" duration="3639000" />
+      <workItem from="1788981499400" duration="16000" />
+      <workItem from="1789657083040" duration="718000" />
+      <workItem from="1789991381131" duration="48000" />
+      <workItem from="1790594848939" duration="3074000" />
     </task>
     <task id="LOCAL-00001" summary="added files back">
       <option name="closed" value="true" />
@@ -319,7 +344,31 @@
       <option name="project" value="LOCAL" />
       <updated>1788250782457</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="done repo test">
+      <option name="closed" value="true" />
+      <created>1788624527838</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1788624527838</updated>
+    </task>
+    <task id="LOCAL-00008" summary="done repo test">
+      <option name="closed" value="true" />
+      <created>1788624562264</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1788624562264</updated>
+    </task>
+    <task id="LOCAL-00009" summary="done DAO and Rowmapper in progress with H2">
+      <option name="closed" value="true" />
+      <created>1788796978127</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1788796978127</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,7 +380,9 @@
     <MESSAGE value="finished money class and finished tests for money, may modify tests later" />
     <MESSAGE value="transaction class finished may modify" />
     <MESSAGE value="starting on Account.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="starting on Account.java" />
+    <MESSAGE value="done repo test" />
+    <MESSAGE value="done DAO and Rowmapper in progress with H2" />
+    <option name="LAST_COMMIT_MESSAGE" value="done DAO and Rowmapper in progress with H2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -367,19 +418,25 @@
           </properties>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/com/financetracker/infrastructuretest/InMemoryAccountRepositoryTest.java</url>
-          <line>102</line>
-          <properties class="com.financetracker.infrastructuretest.InMemoryAccountRepositoryTest" method="findAllAccountsReturnsANewList">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/financetracker/domaintest/AccountTest.java</url>
           <line>14</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/financetracker/domaintest/TransactionTest.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/financetracker/infrastructuretest/H2AccountRepositoryTest.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/financetracker/infrastructuretest/H2AccountRepositoryTest.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -16,7 +16,7 @@ public interface AccountDAO {
     @SqlUpdate("INSERT INTO accounts(account_id,currency) VALUES (:id,:currency)")
      void insertAccount(@Bind("id") String id, @Bind("currency") String currency);
 
-    @SqlUpdate("INSERT INTO transactions(account_id,type,amount,category,occured_at,currency) VALUES (:account_id,:type,:amount,:category,:occured_at,:currency)")
+    @SqlUpdate("INSERT INTO transactions(account_id,type,amount,category,occured_at,currency) VALUES (:id,:type,:amount,:category,:occured_at,:currency)")
     void insertTransaction(@Bind("id") String id,@Bind("type")
     String type, @Bind("amount")
     BigDecimal amount, @Bind("category") String category, @Bind("occured_at")Instant date,
