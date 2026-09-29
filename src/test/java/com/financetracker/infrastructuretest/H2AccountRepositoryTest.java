@@ -147,10 +147,10 @@ public class H2AccountRepositoryTest {
         Account a = Account.of("1", usd);
         a.addNewTransaction(Transaction.of(
                 Money.of(new BigDecimal("50.00"), usd),
-                Instant.parse("2024-01-15T09:00:00Z"), "salary", TransactionType.INCOME));
+                Instant.now(), "salary", TransactionType.INCOME));
         a.addNewTransaction(Transaction.of(
                 Money.of(new BigDecimal("12.50"), usd),
-                Instant.parse("2024-01-16T12:30:00Z"), "food", TransactionType.EXPENSE));
+                Instant.now(), "food", TransactionType.EXPENSE));
 
         repo.addAccount(a);
 

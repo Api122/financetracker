@@ -24,6 +24,7 @@ public class InMemoryAccountRepository implements AccountRepository {
 
     @Override
     public void updateAccount(Account updateaccount) {
+        if(!accountHashMap.containsKey(updateaccount.getAccountID())){throw new IllegalArgumentException("cannot update a non existent account");}
         accountHashMap.put(updateaccount.getAccountID(),updateaccount);
 
     }

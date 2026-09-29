@@ -2,6 +2,7 @@ package com.financetracker.domain;
 
 
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 
 
 public final class Transaction {
@@ -13,7 +14,7 @@ public final class Transaction {
 
     private Transaction(Money amount , Instant date , String category , TransactionType type) {
         this.amount = amount;
-        this.date = date;
+        this.date = date.truncatedTo(ChronoUnit.MICROS);
         this.category = category;
         this.type = type;
 

@@ -117,6 +117,15 @@ public class InMemoryAccountRepositoryTest {
         assertThrows(IllegalArgumentException.class,()->repo.deleteAccount("1"));
     }
 
+    @Test void updatingNonexistentId(){
+        AccountRepository repo = new InMemoryAccountRepository();
+        Account account = Account.of("12",Currency.getInstance("USD"));
+        repo.addAccount(account);
+        repo.deleteAccount(account.getAccountID());
+
+        assertThrows(IllegalArgumentException.class,()->repo.updateAccount(account));
+    }
+
 
 
 

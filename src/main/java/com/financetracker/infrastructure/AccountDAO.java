@@ -29,7 +29,7 @@ public interface AccountDAO {
     @SqlUpdate("UPDATE accounts SET currency = :currency WHERE account_id = :id")
      void updateAccount(@Bind("id") String id,@Bind("currency") String currency);
 
-    @SqlUpdate("DELETE FROM transactions WHERE account_id = :id")
+    @SqlUpdate("DELETE FROM transactions WHERE account_id = :id ")
     void deleteTransactionsFromAccountID(@Bind("id") String id);
 
     @SqlQuery("SELECT currency FROM accounts WHERE account_id = :id")
@@ -38,7 +38,7 @@ public interface AccountDAO {
     @SqlQuery("SELECT account_id FROM accounts")
     List<String> findAllaccountsIDs();
 
-    @SqlQuery("SELECT * FROM transactions WHERE account_id=:id")
+    @SqlQuery("SELECT * FROM transactions WHERE account_id=:id ORDER BY id")
     @RegisterRowMapper(TransactionRowMapper.class)
     List<Transaction> findTransactionsByAccountID(@Bind("id") String id);
 
